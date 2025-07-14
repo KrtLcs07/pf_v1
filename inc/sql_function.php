@@ -20,8 +20,6 @@ function identifier_personne($email, $mdp)
         return mysqli_fetch_assoc($rqst_sql)["id_membre"];
     }
 
-
-    return $rqst_sql;
 }
 
 
