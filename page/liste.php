@@ -16,8 +16,9 @@ $liste = get_All_object();
                     <div class="property-card">
                         <div class="position-relative">
 
-                            <img src="../uploads/<?= $object['image_objet'] ?? '../assets/image/placeholder.svg' ?>" alt="Objet" class="img-fluid">
-
+                            <a href="model.php?page=ficheObjet.php&obj=<?= $object['id_objet'] ?>">
+                                <img src="../uploads/<?= $object['image_objet'] ?? '../assets/image/placeholder.svg' ?>" alt="Objet" class="img-fluid">
+                            </a>
 
                             <?php if ($object['date_emprunt']) { ?>
                                 <div class="position-absolute top-0 end-0 m-2">

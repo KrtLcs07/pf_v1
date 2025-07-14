@@ -57,11 +57,15 @@ CSS :
 Todo V2
 
 Fonction:
-    _getObjet qui retoure les informations sur un objet (Lucas) 
+    _getObjet qui retoure les informations sur un objet (Lucas) ;;ok
+    _getAllImageObjet (Lucas) ;;ok
+    _getHistoriqueEmprunt (Lucas) ;;ok
 
 Page:
 
     fiche_Objet.php
-        _afficher information sur l'objet par la fonction get_objet (Lucas)
-        _ajoute des historiques des emprunts (Lucas)
+        _afficher information sur l'objet par la fonction get_objet (Lucas) ;;ok
+        _afficher tous les images d'un objet dans un carroussel bootstrap (Lucas) ;;ok
+        _ajout des historiques des emprunts avec la fonction getHistoriqueEMprunt(Lucas)
+        _
 

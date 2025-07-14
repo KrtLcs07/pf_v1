@@ -239,6 +239,7 @@ SELECT
     o.nom_objet,
     c.nom_categorie,
     c.id_categorie,
+    m.id_membre,
     m.nom AS proprietaire,
     (
         SELECT io.nom_image
@@ -253,7 +254,8 @@ FROM
     objet o
     JOIN categorie_objet c ON o.id_categorie = c.id_categorie
     JOIN membre m ON o.id_membre = m.id_membre
-    LEFT JOIN emprunt e ON e.id_objet = o.id_objet;
+    LEFT JOIN emprunt e ON e.id_objet = o.id_objet
+    AND e.date_retour IS NULL;
 
 SELECT * FROM emprunt;
 
