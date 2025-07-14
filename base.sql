@@ -255,4 +255,4 @@ FROM
     LEFT JOIN emprunt e ON e.id_objet = o.id_objet
     AND e.date_retour IS NULL;
 
-SELECT * from v_liste_objets;
+SELECT * from membre;

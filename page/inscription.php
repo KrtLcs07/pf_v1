@@ -39,7 +39,6 @@
                 <select class="form-select" name="genre" id="genre" required>
                     <option value="H">Homme</option>
                     <option value="F">Femme</option>
-                    <option value="Autre">Autre</option>
                 </select>
             </div>
 
