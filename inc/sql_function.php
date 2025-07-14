@@ -75,16 +75,15 @@ function get_All_object_categ($id_categ)
     return $retour;
 }
 function insert_object($nom_objet, $id_categorie, $id_membre) {
-    $conn = dbconnect();
 
     $requete = "INSERT INTO objet (nom_objet, id_categorie, id_membre) 
                 VALUES ('$nom_objet', $id_categorie, $id_membre)";
 
    
-    mysqli_query($conn, $requete);
+    mysqli_query(dbconnect(), $requete);
 
     
-    $id_insere = mysqli_insert_id($conn);
+    $id_insere = mysqli_insert_id(dbconnect());
 
     return $id_insere;
 }
@@ -94,10 +93,28 @@ function insert_image_object($id_objet, $nom_image) {
 
     $requete = "INSERT INTO images_objet (id_objet, nom_image) VALUES ($id_objet, '$nom_image')";
     mysqli_query($conn, $requete);
-
-    mysqli_close($conn);
 }
 
+function build_object_search_query($nom_objet = '', $id_categorie = '', $dispo = false) {
+    $conditions = [];
+
+    if (!empty($nom_objet)) {
+        $nom_objet = addslashes($nom_objet); 
+        $conditions[] = "v.nom_objet LIKE '%$nom_objet%'";
+    }
+
+    if (!empty($id_categorie)) {
+        $id_categorie = intval($id_categorie);
+        $conditions[] = "v.id_categorie = $id_categorie";
+    }
+
+    if ($dispo) {
+        $conditions[] = "v.date_emprunt IS NULL";
+    }
+
+    $where = count($conditions) > 0 ? "WHERE " . implode(" AND ", $conditions) : "";
+    return "SELECT * FROM v_liste_objets v $where";
+}
 
 
 
