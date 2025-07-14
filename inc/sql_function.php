@@ -34,7 +34,7 @@ function get_user($id_membre)
 //////////////////Objet//////////////////////
 function get_All_object()
 {
-    $request = "Select * from v_liste_objets";
+    $request = "Select * from v_liste_objets order by date_emprunt DESC";
     $result = mysqli_query(dbconnect(), $request);
     $retour = [];
     while ($donne = mysqli_fetch_assoc($result)) {
@@ -63,7 +63,7 @@ function get_All_object_categ($id_categ)
 {
 
 
-    $request = "SELECT * FROM v_liste_objets WHERE id_categorie = $id_categ";
+    $request = "SELECT * FROM v_liste_objets WHERE id_categorie = $id_categ  order by date_emprunt DESC";
     $result = mysqli_query(dbconnect(), $request);
 
     $retour = [];
@@ -170,4 +170,24 @@ function getHistoriqueEmprunt($id_objet)
         $historique[] = $row;
     }
     return $historique;
+}
+
+function set_emprunt($id_objet, $id_membre, $nbjour)
+{
+    $conn = dbconnect();
+
+
+    $requete = "INSERT INTO emprunt (
+        id_objet,
+        id_membre,
+        date_emprunt,
+        date_retour
+    ) VALUES (
+        $id_objet,
+        $id_membre,
+        NOW(),
+        DATE_ADD(NOW(), INTERVAL $nbjour DAY)
+    )";
+
+    mysqli_query($conn, $requete);
 }

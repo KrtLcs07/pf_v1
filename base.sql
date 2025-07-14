@@ -254,11 +254,26 @@ FROM
     objet o
     JOIN categorie_objet c ON o.id_categorie = c.id_categorie
     JOIN membre m ON o.id_membre = m.id_membre
-    LEFT JOIN emprunt e ON e.id_objet = o.id_objet
-    AND e.date_retour IS NULL;
+    LEFT JOIN emprunt e ON e.id_objet = o.id_objet;
 
 SELECT * FROM emprunt;
 
 SELECT * from v_liste_objets;
 
 SELECT * FROM objet
+
+INSERT INTO
+    emprunt (
+        id_objet,
+        id_membre,
+        date_emprunt,
+        date_retour
+    )
+VALUES (
+        $id_objet,
+        id_membre,
+        NOW(),
+        DATE_ADD(NOW(), INTERVAL 3 DAY)
+    )
+
+SELECT DATE( DATE_ADD(NOW(), INTERVAL 7 DAY) )
