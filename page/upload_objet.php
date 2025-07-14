@@ -28,11 +28,26 @@ $categories = get_All_categorie();
 
         <div class="mb-3">
             <label for="image_objet" class="form-label">
-                <i class="bi bi-upload me-2"></i>Image de l'objet
+                <i class="bi bi-upload me-2"></i>Image de l'objet (Sur l'affiche)
             </label>
             <input class="form-control" type="file" name="image_objet" id="image_objet" required>
         </div>
 
+         <div class="mb-3">
+            <label for="image_objet_opt1" class="form-label">
+                <i class="bi bi-upload me-2"></i>Image Optionnel
+            </label>
+            <input class="form-control" type="file" name="image_objet" id="image_objet" required>
+        </div>
+
+         <div class="mb-3">
+            <label for="image_objet_opt2" class="form-label">
+                <i class="bi bi-upload me-2"></i>Image Optionnel
+            </label>
+            <input class="form-control" type="file" name="image_objet" id="image_objet" required>
+        </div>
+
+        
         <div class="d-grid">
             <button type="submit" class="btn btn-primary">
                 <i class="bi bi-plus-circle me-2"></i>Ajouter l'objet
