@@ -229,6 +229,30 @@ VALUES (
         '2025-07-06'
     );
 
-
-
 SELECT * FROM objet;
+
+---
+CREATE OR REPLACE VIEW v_liste_objets AS
+SELECT
+    o.id_objet,
+    o.nom_objet,
+    c.nom_categorie,
+    c.id_categorie,
+    m.nom AS proprietaire,
+    (
+        SELECT io.nom_image
+        FROM images_objet io
+        WHERE
+            io.id_objet = o.id_objet
+        LIMIT 1
+    ) AS image_objet,
+    e.date_emprunt,
+    e.date_retour
+FROM
+    objet o
+    JOIN categorie_objet c ON o.id_categorie = c.id_categorie
+    JOIN membre m ON o.id_membre = m.id_membre
+    LEFT JOIN emprunt e ON e.id_objet = o.id_objet
+    AND e.date_retour IS NULL;
+
+SELECT * from v_liste_objets;

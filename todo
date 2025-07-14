@@ -39,5 +39,6 @@ Page:
     
 
     _Liste.php
-
-    
+        _Creation de vue qui relie emprunt et objets(Dirk);;(ok)
+        _Utilisation de la fonction getallobjet(Dirk);;(ok)
+        

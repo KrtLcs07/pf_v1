@@ -37,7 +37,7 @@ function get_user($id_membre)
 //////////////////Objet//////////////////////
 function get_All_object()
 {
-    $request = "Select * from objet";
+    $request = "Select * from v_liste_objets";
     $result = mysqli_query(dbconnect(), $request);
     $retour = [];
     while ($donne = mysqli_fetch_assoc($result)) {
@@ -49,4 +49,30 @@ function get_All_object()
 function is_empruter($id)
 {
     return true;
+}
+
+function get_All_categorie()
+{
+    $request = "Select * from categorie_objet";
+    $result = mysqli_query(dbconnect(), $request);
+    $retour = [];
+    while ($donne = mysqli_fetch_assoc($result)) {
+        $retour[] = $donne;
+    }
+    return $retour;
+}
+
+function get_All_object_categ($id_categ)
+{
+
+
+    $request = "SELECT * FROM v_liste_objets WHERE id_categorie = $id_categ";
+    $result = mysqli_query(dbconnect(), $request);
+
+    $retour = [];
+    while ($donne = mysqli_fetch_assoc($result)) {
+        $retour[] = $donne;
+    }
+
+    return $retour;
 }

@@ -44,11 +44,9 @@ $page = $_GET["page"];
             </button>
             <div class="collapse navbar-collapse" id="menu">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item "><a class="nav-link" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Recherche</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Pages</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Uploads</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Deconnexion</a></li>
+                    <li class="nav-item "><a class="nav-link" href="./model.php?page=liste.php">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./model.php?page=categorie_list.php">Categorie</a></li>
+                    <li class="nav-item"><a class="nav-link text-danger" href="./action/deconnect.php">Deconnexion</a></li>
                 </ul>
             </div>
         </div>
