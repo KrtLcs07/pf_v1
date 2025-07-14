@@ -74,3 +74,13 @@ function get_All_object_categ($id_categ)
 
     return $retour;
 }
+function insert_object($nom_objet, $id_categorie, $id_membre) {
+    $requete = "INSERT INTO objet (nom_objet, id_categorie, id_membre) 
+                VALUES ('$nom_objet', $id_categorie, $id_membre)";
+
+    mysqli_query(dbconnect(), $requete);
+
+    echo $requete;
+}
+
+
