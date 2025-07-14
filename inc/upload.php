@@ -11,7 +11,8 @@ function upload2($file, $rep = "uploads/")
     }
 
     $maxSize = 50 * 1024 * 1024;
-    $allowedMimeTypes = ['video/mp4'];
+    $allowedMimeTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($file) && is_array($file)) {
         if ($file['error'] !== UPLOAD_ERR_OK) {
