@@ -95,7 +95,26 @@ function insert_image_object($id_objet, $nom_image) {
     mysqli_query($conn, $requete);
 }
 
+function build_object_search_query($nom_objet = '', $id_categorie = '', $dispo = false) {
+    $conditions = [];
 
+    if (!empty($nom_objet)) {
+        $nom_objet = addslashes($nom_objet); 
+        $conditions[] = "v.nom_objet LIKE '%$nom_objet%'";
+    }
+
+    if (!empty($id_categorie)) {
+        $id_categorie = intval($id_categorie);
+        $conditions[] = "v.id_categorie = $id_categorie";
+    }
+
+    if ($dispo) {
+        $conditions[] = "v.date_emprunt IS NULL";
+    }
+
+    $where = count($conditions) > 0 ? "WHERE " . implode(" AND ", $conditions) : "";
+    return "SELECT * FROM v_liste_objets v $where";
+}
 
 
 
