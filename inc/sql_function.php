@@ -14,6 +14,13 @@ function identifier_personne($email, $mdp)
     $requete = sprintf("SELECT * FROM membre WHERE email ='%s' and mdp='%s'", $email, $mdp);
     echo $requete;
     $rqst_sql = mysqli_query(dbconnect(), $requete);
+    if (mysqli_num_rows($rqst_sql) == 0) {
+        return null;
+    } else {
+        return mysqli_fetch_assoc($rqst_sql)["id_membre"];
+    }
+
+
     return $rqst_sql;
 }
 

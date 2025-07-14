@@ -17,9 +17,25 @@ Page:
     _Signin.php (Lucas) ;;ok
         _ tous les information de membre autre que pdp
 
+    _action :
+        inscription :
+            fonction (Dirk) ;; (ok)
+            application/traitement (Dirk) ;;(ok)
+
+
+        connection :
+            fonction (Dirk);; (ok)
+            application/traitement (Dirk) ;;(ok)
+                session start (Dirk);; (ok)
+
+            
+
+
     _Creation de page model.php (Lucas)
         _verif si page null ou non
         _ajout de header/nav, barre de navigation
         _ajout de footer avec ETU
 
     _Liste.php
+
+    

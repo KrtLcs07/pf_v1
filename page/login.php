@@ -17,7 +17,7 @@
             <h4 class="mt-2">Connexion</h4>
         </div>
 
-        <form action="./action/traitement_log.php" method="post">
+        <form action="./action/connect.php" method="post">
             <div class="form-floating mb-3">
                 <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
                 <label for="email"><i class="bi bi-envelope-fill me-2"></i>Email</label>
