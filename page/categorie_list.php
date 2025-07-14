@@ -1,6 +1,5 @@
 <?php
 
-
 $categories = get_All_categorie();
 
 if (!isset($_POST["categ"]) || $_POST["categ"] === "all") {
@@ -12,43 +11,15 @@ if (!isset($_POST["categ"]) || $_POST["categ"] === "all") {
 }
 ?>
 
-<style>
-    .property-card img {
-        object-fit: cover;
-        height: 200px;
-        width: 100%;
-        transition: 0.5s ease;
-    }
 
-    .property-card:hover {
-        transform: translateY(-5px);
-    }
-
-    .property-card {
-        border: 1px solid #ddd;
-        border-radius: 10px;
-        overflow: hidden;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-        margin-bottom: 30px;
-        background-color: white;
-    }
-
-    .badge-sale {
-        background-color: crimson;
-    }
-
-    .badge-cat {
-        background-color: #0d6efd;
-    }
-</style>
 
 <main class="container">
 
     <section class="mb-4">
         <form action="#" method="POST" class="row g-2 align-items-center">
             <div class="col-md-4">
-                <select name="categ" class="form-select" onchange="this.form.submit()">
-                    <option value="all" <?= $selected === "all" ? "selected" : "" ?>>-- Toutes les catégories --</option>
+                <select name="categ" class="form-select">
+                    <option value=" all" <?= $selected === "all" ? "selected" : "" ?>>-- Toutes les catégories --</option>
                     <?php foreach ($categories as $cat) { ?>
                         <option value="<?= $cat['id_categorie'] ?>" <?= ($selected == $cat['id_categorie']) ? "selected" : "" ?>>
                             <?= ($cat['nom_categorie']) ?>
@@ -75,7 +46,7 @@ if (!isset($_POST["categ"]) || $_POST["categ"] === "all") {
                 <article class="col-md-3 col-sm-6">
                     <div class="property-card">
                         <div class="position-relative">
-                            <img src="../uploads/<?= $object['image_objet'] ?? '../assets/image/tank.jpg' ?>" alt="Objet" class="img-fluid">
+                            <img src="../uploads/<?= $object['image_objet'] ?? '../assets/image/placeholder.svg' ?>" alt="Objet" class="img-fluid">
 
                             <?php if ($object['date_emprunt']) { ?>
                                 <div class="position-absolute top-0 end-0 m-2">

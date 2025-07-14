@@ -2,35 +2,6 @@
 $liste = get_All_object();
 ?>
 
-<style>
-    .property-card img {
-        object-fit: cover;
-        height: 200px;
-        width: 100%;
-        transition: 0.5s ease;
-    }
-
-    .property-card:hover {
-        transform: translateY(-5px);
-    }
-
-    .property-card {
-        border: 1px solid #ddd;
-        border-radius: 10px;
-        overflow: hidden;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-        margin-bottom: 30px;
-        background-color: white;
-    }
-
-    .badge-sale {
-        background-color: crimson;
-    }
-
-    .badge-cat {
-        background-color: #0d6efd;
-    }
-</style>
 
 <main>
     <section class="container text-center mb-4">
@@ -45,7 +16,7 @@ $liste = get_All_object();
                     <div class="property-card">
                         <div class="position-relative">
 
-                            <img src="../uploads/<?= $object['image_objet'] ?? '../assets/image/tank.jpg' ?>" alt="Objet" class="img-fluid">
+                            <img src="../uploads/<?= $object['image_objet'] ?? '../assets/image/placeholder.svg' ?>" alt="Objet" class="img-fluid">
 
 
                             <?php if ($object['date_emprunt']) { ?>

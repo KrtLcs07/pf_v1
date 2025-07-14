@@ -17,6 +17,36 @@ $page = $_GET["page"];
 <!DOCTYPE html>
 <html lang="fr">
 
+<style>
+    .property-card img {
+        object-fit: cover;
+        height: 200px;
+        width: 100%;
+        transition: 0.5s ease;
+    }
+
+    .property-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .property-card {
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        margin-bottom: 30px;
+        background-color: white;
+    }
+
+    .badge-sale {
+        background-color: crimson;
+    }
+
+    .badge-cat {
+        background-color: #0d6efd;
+    }
+</style>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -46,7 +76,7 @@ $page = $_GET["page"];
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item "><a class="nav-link" href="./model.php?page=liste.php">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="./model.php?page=categorie_list.php">Categorie</a></li>
-                    <li class="nav-item"><a class="nav-link text-danger" href="./action/deconnect.php">Deconnexion</a></li>
+                    <li class="nav-item"><a class="nav-link text-danger" href="./action/deconnect.php">Deconnexion <i class="bi bi-box-arrow-in-right text-danger"></i> </a></li>
                 </ul>
             </div>
         </div>
