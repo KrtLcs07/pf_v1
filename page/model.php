@@ -1,12 +1,17 @@
 <?php
-// include("../inc/mysql_function.php");
 
-// if (!isset($_GET["page"])) {
-//     header("Location: ?page=liste.php");
-//     exit();
-// }
+include("../inc/sql_function.php");
 
-// $page = $_GET["page"];
+session_start();
+$id = $_SESSION['id'];
+$user = get_user($id);
+if (!isset($_GET["page"])) {
+    header("Location: ?page=liste.php");
+    exit();
+}
+
+$page = $_GET["page"];
+
 ?>
 
 <!DOCTYPE html>
@@ -27,8 +32,9 @@
     <nav class="navbar navbar-expand-lg shadow-sm mb-4" style="background-color:aliceblue;">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <i class="bi bi-house-fill text-primary"></i> [TITRE DE LA PAGE]
+                <i class="bi bi-box-seam-fill text-success me-2"></i> ShareBox
             </a>
+
             <button
                 class="navbar-toggler"
                 type="button"
@@ -42,7 +48,7 @@
                     <li class="nav-item"><a class="nav-link" href="#">Recherche</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Pages</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Uploads</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Deconnexion</a></li>
                 </ul>
             </div>
         </div>
@@ -50,13 +56,8 @@
 
     <!-- ===== Contenu ===== -->
     <main class="container mb-5">
-        <div class="text-center">
-            <h1 class="mb-3">Bienvenue sur votre page modèle</h1>
-            <p class="lead">Commencez par créer vos pages dans le dossier dédié.</p>
-        </div>
 
-        <!-- <?php //include($page); 
-                ?> -->
+        <?php include($page); ?>
     </main>
 
     <!-- ===== Footer ===== -->

@@ -33,3 +33,20 @@ function get_user($id_membre)
     $result = mysqli_fetch_assoc($result);
     return $result;
 }
+
+//////////////////Objet//////////////////////
+function get_All_object()
+{
+    $request = "Select * from objet";
+    $result = mysqli_query(dbconnect(), $request);
+    $retour = [];
+    while ($donne = mysqli_fetch_assoc($result)) {
+        $retour[] = $donne;
+    }
+    return $retour;
+}
+
+function is_empruter($id)
+{
+    return true;
+}

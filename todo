@@ -7,8 +7,8 @@ _Création de base de donnée (Lucas) ;;ok
 
 Fonction:
     _insertion d'user
-    _verif user
-    _getAll objet
+    _identiier user
+    _get user
 
 Page:
     _Login.php (Lucas) ;;ok
@@ -28,13 +28,15 @@ Page:
             application/traitement (Dirk) ;;(ok)
                 session start (Dirk);; (ok)
 
-            
-
-
     _Creation de page model.php (Lucas)
         _verif si page null ou non
         _ajout de header/nav, barre de navigation
         _ajout de footer avec ETU
+        _afficher titre
+        _afficher user
+        _bouton de deconnection
+
+    
 
     _Liste.php
 

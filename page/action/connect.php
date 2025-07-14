@@ -9,5 +9,5 @@ if ($id == null) {
     session_start();
     $_SESSION["id"] = $id;
     echo $id;
-    //header("location:../model.php");
+    header("location:../model.php?page=liste.php");
 }
