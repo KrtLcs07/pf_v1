@@ -13,6 +13,7 @@ Fonction:
     _get All catgorie (Dirk);; ok 
     _get All obejt categ (Dirk);; ok 
 
+
 Page:
     _Login.php (Lucas) ;;ok
         _nom et mdp
@@ -51,3 +52,16 @@ Page:
 CSS :
     _bootstrap et css perso (Lucas,Dirk) ;;ok
     _icon bootstrap utilisé (Lucas) ;;ok
+
+
+Todo V2
+
+Fonction:
+    _getObjet qui retoure les informations sur un objet (Lucas) 
+
+Page:
+
+    fiche_Objet.php
+        _afficher information sur l'objet par la fonction get_objet (Lucas)
+        _ajoute des historiques des emprunts (Lucas)
+

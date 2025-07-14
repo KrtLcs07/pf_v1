@@ -71,6 +71,8 @@ $page = $_GET["page"];
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link" href="./model.php?page=liste.php">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="./model.php?page=categorie_list.php">Catégorie</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./model.php?page=categorie_list.php">Nouvelle Objet</a></li>
+
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-info" href="#" role="button" data-bs-toggle="dropdown">
@@ -78,9 +80,13 @@ $page = $_GET["page"];
                             <?= $user['nom'] ?>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item " href="./action/deconnect.php">
+                                    <i class="bi bi-person me-1"></i> Profile
+                                </a></li>
                             <li><a class="dropdown-item text-danger" href="./action/deconnect.php">
                                     <i class="bi bi-box-arrow-right me-1"></i> Déconnexion
                                 </a></li>
+
                         </ul>
                     </li>
                 </ul>
