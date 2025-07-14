@@ -12,26 +12,7 @@ if ($membre == null) {
     exit;
 }
 
-function get_objets_Membre($id_membre)
-{
-    $request = "SELECT o.id_objet,o.nom_objet, c.nom_categorie, io.nom_image
-                FROM objet o
-                JOIN categorie_objet c ON o.id_categorie = c.id_categorie
-                LEFT JOIN (
-                    SELECT id_objet, MIN(nom_image) AS nom_image
-                    FROM images_objet
-                    GROUP BY id_objet
-                ) io ON io.id_objet = o.id_objet
-                WHERE o.id_membre = $id_membre
-                ORDER BY c.nom_categorie";
-    $result = mysqli_query(dbconnect(), $request);
 
-    $grouped = [];
-    while ($donne = mysqli_fetch_assoc($result)) {
-        $grouped[$donne['nom_categorie']][] = $donne;
-    }
-    return $grouped;
-}
 
 $mesObjets = get_objets_Membre($id);
 ?>

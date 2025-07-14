@@ -72,7 +72,7 @@ $page = $_GET["page"];
                     <li class="nav-item"><a class="nav-link" href="./model.php?page=liste.php">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="./model.php?page=categorie_list.php">Catégorie</a></li>
                     <li class="nav-item"><a class="nav-link" href="./model.php?page=upload_objet.php">Nouveau</a></li>
-                    <li class="nav-item"><a class="nav-link" href="./model.php?page=upload_objet.php">Recherche</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./model.php?page=recherche.php">Recherche</a></li>
 
 
 

@@ -19,7 +19,6 @@ function identifier_personne($email, $mdp)
     } else {
         return mysqli_fetch_assoc($rqst_sql)["id_membre"];
     }
-
 }
 
 
@@ -74,32 +73,35 @@ function get_All_object_categ($id_categ)
 
     return $retour;
 }
-function insert_object($nom_objet, $id_categorie, $id_membre) {
+function insert_object($nom_objet, $id_categorie, $id_membre)
+{
 
     $requete = "INSERT INTO objet (nom_objet, id_categorie, id_membre) 
                 VALUES ('$nom_objet', $id_categorie, $id_membre)";
 
-   
+
     mysqli_query(dbconnect(), $requete);
 
-    
+
     $id_insere = mysqli_insert_id(dbconnect());
 
     return $id_insere;
 }
 
-function insert_image_object($id_objet, $nom_image) {
+function insert_image_object($id_objet, $nom_image)
+{
     $conn = dbconnect();
 
     $requete = "INSERT INTO images_objet (id_objet, nom_image) VALUES ($id_objet, '$nom_image')";
     mysqli_query($conn, $requete);
 }
 
-function build_object_search_query($nom_objet = '', $id_categorie = '', $dispo = false) {
+function build_object_search_query($nom_objet = '', $id_categorie = '', $dispo = false)
+{
     $conditions = [];
 
     if (!empty($nom_objet)) {
-        $nom_objet = addslashes($nom_objet); 
+        $nom_objet = addslashes($nom_objet);
         $conditions[] = "v.nom_objet LIKE '%$nom_objet%'";
     }
 
@@ -116,6 +118,56 @@ function build_object_search_query($nom_objet = '', $id_categorie = '', $dispo =
     return "SELECT * FROM v_liste_objets v $where";
 }
 
+function get_objets_Membre($id_membre)
+{
+    $request = "SELECT o.id_objet,o.nom_objet, c.nom_categorie, io.nom_image
+                FROM objet o
+                JOIN categorie_objet c ON o.id_categorie = c.id_categorie
+                LEFT JOIN (
+                    SELECT id_objet, MIN(nom_image) AS nom_image
+                    FROM images_objet
+                    GROUP BY id_objet
+                ) io ON io.id_objet = o.id_objet
+                WHERE o.id_membre = $id_membre
+                ORDER BY c.nom_categorie";
+    $result = mysqli_query(dbconnect(), $request);
 
+    $grouped = [];
+    while ($donne = mysqli_fetch_assoc($result)) {
+        $grouped[$donne['nom_categorie']][] = $donne;
+    }
+    return $grouped;
+}
 
+function getObjet($id)
+{
+    $request = "SELECT * FROM v_liste_objets WHERE id_objet = $id";
+    $result = mysqli_query(dbconnect(), $request);
+    return mysqli_fetch_assoc($result);
+}
 
+function get_All_image_Objet($id)
+{
+    $request = "SELECT nom_image FROM images_objet WHERE id_objet = $id";
+    $result = mysqli_query(dbconnect(), $request);
+    $images = [];
+    while ($donne = mysqli_fetch_assoc($result)) {
+        $images[] = $donne['nom_image'];
+    }
+    return $images;
+}
+
+function getHistoriqueEmprunt($id_objet)
+{
+    $sql = "SELECT e.date_emprunt, e.date_retour, m.nom AS emprunteur
+            FROM emprunt e
+            JOIN membre m ON m.id_membre = e.id_membre
+            WHERE e.id_objet = $id_objet
+            ORDER BY e.date_emprunt DESC";
+    $result = mysqli_query(dbconnect(), $sql);
+    $historique = [];
+    while ($row = mysqli_fetch_assoc($result)) {
+        $historique[] = $row;
+    }
+    return $historique;
+}

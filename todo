@@ -69,6 +69,16 @@ Page:
         _ajout des historiques des emprunts avec la fonction getHistoriqueEMprunt(Lucas) ;;ok
     
     ficheMembre.php
-        _afficher les informations du membre avec getUser (Lucas) 
+        _afficher les informations du membre avec getUser (Lucas) ;;ok
+        _afficher les objets du membre par la fonction (Lucas) ;;ok
+
+    upload.php
+        _ajout de formulaire d'ajout d'objet (Dirk) ;;ok
+        _fonction d'upload et d'insertion (Dirk) ;;ok
+        _essaie avec 3 image max (Dirk) ;;ok
+
+    recherche.php
+        _formulaire de recherche (Dirk);; ok
+        _redirection vers soit meme et appel des fonction (Dirk) ;;ok
 
 

@@ -3,38 +3,6 @@ if (!isset($_GET['obj'])) header("location:model.php?page=liste.php");
 
 $id = $_GET['obj'];
 
-function getObjet($id)
-{
-    $request = "SELECT * FROM v_liste_objets WHERE id_objet = $id";
-    $result = mysqli_query(dbconnect(), $request);
-    return mysqli_fetch_assoc($result);
-}
-
-function get_All_image_Objet($id)
-{
-    $request = "SELECT nom_image FROM images_objet WHERE id_objet = $id";
-    $result = mysqli_query(dbconnect(), $request);
-    $images = [];
-    while ($donne = mysqli_fetch_assoc($result)) {
-        $images[] = $donne['nom_image'];
-    }
-    return $images;
-}
-
-function getHistoriqueEmprunt($id_objet)
-{
-    $sql = "SELECT e.date_emprunt, e.date_retour, m.nom AS emprunteur
-            FROM emprunt e
-            JOIN membre m ON m.id_membre = e.id_membre
-            WHERE e.id_objet = $id_objet
-            ORDER BY e.date_emprunt DESC";
-    $result = mysqli_query(dbconnect(), $sql);
-    $historique = [];
-    while ($row = mysqli_fetch_assoc($result)) {
-        $historique[] = $row;
-    }
-    return $historique;
-}
 
 
 $images = get_All_image_Objet($id);
