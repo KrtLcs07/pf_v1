@@ -71,7 +71,7 @@ $page = $_GET["page"];
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link" href="./model.php?page=liste.php">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="./model.php?page=categorie_list.php">Catégorie</a></li>
-                    <li class="nav-item"><a class="nav-link" href="./model.php?page=categorie_list.php">Nouvelle Objet</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./model.php?page=upload_objet.php">Nouvelle Objet</a></li>
 
 
                     <li class="nav-item dropdown">
