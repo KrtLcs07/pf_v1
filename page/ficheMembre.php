@@ -92,7 +92,8 @@ $mesObjets = get_objets_Membre($id);
                                     <img src="../uploads/<?= $o['nom_image'] ?? '../assets/image/placeholder.svg' ?>" class="card-img-top" alt="<?= $o['nom_objet'] ?>" style="object-fit:cover; height:160px;">
                                 </a>
                                 <div class="card-body text-center p-2">
-                                    <h6 class="card-title mb-0"><?= htmlspecialchars($o['nom_objet']) ?></h6>
+                                    <h6 class="card-title mb-0"><?= ($o['nom_objet']) ?></h6>
+
                                 </div>
                             </div>
                         </div>

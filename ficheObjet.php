@@ -86,11 +86,6 @@ $objet = getObjet($id);
                 <?php } else { ?>
                     <img src="../assets/image/placeholder.svg" class="gallery-img shadow-sm" alt="Aucune image disponible">
                 <?php } ?>
-                <?php
-                if ($objet['id_membre'] == $_SESSION['id']) { ?>
-                    <a href="" class="btn btn-danger"> supprimer des images </a>
-                <?php }
-                ?>
             </div>
 
             <div class="col-md-6">
@@ -99,7 +94,6 @@ $objet = getObjet($id);
                     <p class="mb-1">Nom : <strong><?= ($objet['proprietaire']) ?></strong></p>
                     <p>Email : <i><?= get_user($objet['id_membre'])['email'] ?></i></p>
                     <p><a href="model.php?page=ficheMembre.php&id=<?= $objet['id_membre'] ?>" class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-50-hover"> Voir plus sur la personne</a></p>
-
                     <?php if ($objet['date_emprunt']) { ?>
                         <hr>
                         <h6 class="mt-3"><i class="bi bi-calendar-event me-1"></i>Emprunt en cours</h6>
