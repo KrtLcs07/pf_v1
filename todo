@@ -6,9 +6,12 @@ _Création de base de donnée (Lucas) ;;ok
     _insertion de donnée de test
 
 Fonction:
-    _insertion d'user
-    _identiier user
-    _get user
+    _insertion d'user(Dirk) ;; ok 
+    _identiier user (Dirk);;  ok
+    _get user (Lucas);; ok
+    _get All objets (Lucas) ;;ok
+    _get All catgorie (Dirk);; ok 
+    _get All obejt categ (Dirk);; ok 
 
 Page:
     _Login.php (Lucas) ;;ok
@@ -28,17 +31,23 @@ Page:
             application/traitement (Dirk) ;;(ok)
                 session start (Dirk);; (ok)
 
-    _Creation de page model.php (Lucas)
-        _verif si page null ou non
-        _ajout de header/nav, barre de navigation
+    _Creation de page model.php (Lucas) ;;ok
+        _verif si page null ou non 
+        _ajout de header/nav, barre de navigation 
         _ajout de footer avec ETU
         _afficher titre
         _afficher user
         _bouton de deconnection
 
-    
-
     _Liste.php
-        _Creation de vue qui relie emprunt et objets(Dirk);;(ok)
-        _Utilisation de la fonction getallobjet(Dirk);;(ok)
-        
+        _Creation de vue qui relie emprunt et objets et proprietaire(Lucas);;(ok)
+        _Utilisation de la fonction getallobjet(Lucas);;(ok)
+        _afficher les information sur l'objet/ afficher si emprunter (Lucas) ;;ok
+
+    _categorie_list.php
+        _ajout de formulaire qui retourne sur soit meme et envoie la _categorie selectectionner (Dirk) ;;ok
+        _Utilisation du meme affichage comme dans liste (Dirk) ;;ok
+
+CSS :
+    _bootstrap et css perso (Lucas,Dirk) ;;ok
+    _icon bootstrap utilisé (Lucas) ;;ok
