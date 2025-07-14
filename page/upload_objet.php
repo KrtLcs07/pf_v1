@@ -58,7 +58,7 @@ $categories = get_All_categorie();
     </form>
 
     <div class="mt-3 text-center">
-        <a href="liste_objets.php" class="text-decoration-none">
+        <a href="./model.php?page=liste.php" class="text-decoration-none">
             <i class="bi bi-arrow-left me-1"></i>Retour à la liste
         </a>
     </div>

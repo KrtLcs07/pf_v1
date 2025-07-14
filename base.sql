@@ -276,4 +276,21 @@ VALUES (
         DATE_ADD(NOW(), INTERVAL 3 DAY)
     )
 
-SELECT DATE( DATE_ADD(NOW(), INTERVAL 7 DAY) )
+-- SELECT DATE( DATE_ADD(NOW(), INTERVAL 7 DAY) )
+SELECT * FROM emprunt;
+
+ALTER TABLE emprunt ADD COLUMN statut VARCHAR(10);
+
+CREATE OR REPLACE VIEW v_statut_emprunts AS
+SELECT
+    statut,
+    COUNT(*) AS total
+FROM
+    emprunt
+WHERE
+    statut IS NOT NULL
+GROUP BY
+    statut;
+
+
+select * FROM v_statut_emprunts

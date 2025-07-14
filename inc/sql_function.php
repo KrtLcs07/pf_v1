@@ -191,3 +191,63 @@ function set_emprunt($id_objet, $id_membre, $nbjour)
 
     mysqli_query($conn, $requete);
 }
+function get_emprunt($id_personne)
+{
+    $conn = dbconnect();
+
+    $query = "
+        SELECT 
+            e.id_emprunt,
+            e.date_emprunt,
+            e.date_retour,
+            e.statut,
+            o.nom_objet,
+            o.id_objet,
+            c.nom_categorie,
+            m.nom AS proprietaire,
+            (
+                SELECT nom_image
+                FROM images_objet io
+                WHERE io.id_objet = o.id_objet
+                LIMIT 1
+            ) AS image_objet
+        FROM emprunt e
+        JOIN objet o ON o.id_objet = e.id_objet
+        JOIN categorie_objet c ON c.id_categorie = o.id_categorie
+        JOIN membre m ON m.id_membre = o.id_membre
+        WHERE e.id_membre = $id_personne
+          AND e.statut IS NULL
+        ORDER BY e.date_emprunt DESC
+    ";
+
+    $result = mysqli_query($conn, $query);
+
+    $emprunts = [];
+    while ($row = mysqli_fetch_assoc($result)) {
+        $emprunts[] = $row;
+    }
+
+    return $emprunts;
+}
+function rendre($id_emprunt, $statut)
+{
+    $query = "
+        UPDATE emprunt
+        SET 
+            statut = '$statut',
+            date_retour = NOW()
+        WHERE id_emprunt = $id_emprunt
+    ";
+
+    return mysqli_query(dbconnect(), $query);
+}
+function get_stat()
+{
+    $sql = "SELECT * FROM v_statut_emprunts";
+    $res = mysqli_query(dbconnect(), $sql);
+    $stats = [];
+    while ($row = mysqli_fetch_assoc($res)) {
+        $stats[$row['statut']] = $row['total'];
+    }
+    return $stats;
+}

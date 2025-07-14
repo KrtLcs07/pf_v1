@@ -15,6 +15,9 @@ if ($membre == null) {
 
 
 $mesObjets = get_objets_Membre($id);
+
+$mesEmprunts = get_emprunt($id);
+
 ?>
 
 
@@ -100,6 +103,49 @@ $mesObjets = get_objets_Membre($id);
                     <?php } ?>
                 </div>
             <?php } ?>
+        <?php } ?>
+    </section>
+    <section class="mt-5">
+        <h4 class="text-primary mb-4"><i class="bi bi-clock-history me-2"></i>Emprunts en cours</h4>
+
+        <?php if (count($mesEmprunts) === 0) { ?>
+            <div class="alert alert-info">Ce membre n'a aucun emprunt en cours.</div>
+        <?php } else { ?>
+            <div class="table-responsive">
+                <table class="table table-bordered align-middle">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Objet</th>
+                            <th>Propriétaire</th>
+                            <th>Date d'emprunt</th>
+                            <th>Date retour prévue</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($mesEmprunts as $e) { ?>
+                            <?php if ($e['statut'] === null) { ?>
+                                <tr>
+                                    <td><?= htmlspecialchars($e['nom_objet']) ?></td>
+                                    <td><?= htmlspecialchars($e['proprietaire']) ?></td>
+                                    <td><?= date("d/m/Y", strtotime($e['date_emprunt'])) ?></td>
+                                    <td><?= date("d/m/Y", strtotime($e['date_retour'])) ?></td>
+                                    <td>
+                                        <form action="./action/rendre.php" method="POST" class="d-flex">
+                                            <input type="hidden" name="id_emprunt" value="<?= $e['id_emprunt'] ?>">
+                                            <select name="statut" class="form-select form-select-sm me-2" required>
+                                                <option value="OK">OK</option>
+                                                <option value="Abimé">Abimé</option>
+                                            </select>
+                                            <button type="submit" class="btn btn-sm btn-outline-primary">Retourner</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            <?php } ?>
+                        <?php } ?>
+                    </tbody>
+                </table>
+            </div>
         <?php } ?>
     </section>
 
