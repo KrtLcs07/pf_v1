@@ -18,7 +18,7 @@
             <h4 class="mt-2">Création de compte</h4>
         </div>
 
-        <form action="./action/traitement_insc.php" method="post">
+        <form action="./action/inscrire.php" method="post">
             <div class="form-floating mb-3">
                 <input type="text" class="form-control" name="nom" id="nom" placeholder="Nom" required>
                 <label for="nom"><i class="bi bi-person-fill me-2"></i>Nom</label>

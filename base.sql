@@ -47,3 +47,5 @@ CREATE TABLE emprunt (
     FOREIGN KEY (id_objet) REFERENCES objet (id_objet),
     FOREIGN KEY (id_membre) REFERENCES membre (id_membre)
 );
+
+SELECT * from membre;

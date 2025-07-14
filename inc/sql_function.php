@@ -1,8 +1,6 @@
 <?php
-include("./connection.php");
 
-
-
+require('connection.php');
 ///////////////Signin et login/////////////////
 function inscrire_personne($email, $mdp, $nom, $dns, $ville, $genre)
 {
