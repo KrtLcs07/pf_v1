@@ -61,15 +61,15 @@ if (!isset($_POST["categ"]) || $_POST["categ"] === "all") {
 
                         <div class="p-3 d-flex flex-column justify-content-between flex-grow-1">
                             <div>
-                                <h6 class="mb-1"><?= htmlspecialchars($object['nom_objet']) ?></h6>
+                                <h6 class="mb-1"><?= ($object['nom_objet']) ?></h6>
                                 <p class="text-muted small mb-2">
-                                    <i class="bi bi-person-fill me-1"></i>Propriétaire : <?= htmlspecialchars($object['proprietaire']) ?>
+                                    <i class="bi bi-person-fill me-1"></i>Propriétaire : <?= ($object['proprietaire']) ?>
                                 </p>
-                                <span class="badge badge-cat text-white mb-2"><?= htmlspecialchars($object['nom_categorie']) ?></span>
+                                <span class="badge badge-cat text-white mb-2"><?= ($object['nom_categorie']) ?></span>
 
                                 <?php if ($object['date_emprunt']) { ?>
                                     <p class="text-danger small mb-0">
-                                        Retour prévu : <?= htmlspecialchars($object['date_retour'] ?? 'non défini') ?>
+                                        Retour prévu : <?= ($object['date_retour'] ?? 'non défini') ?>
                                     </p>
                                 <?php } else { ?>
                                     <p class="text-success small mb-2">Disponible</p>
