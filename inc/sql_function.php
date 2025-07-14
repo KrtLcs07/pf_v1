@@ -74,3 +74,31 @@ function get_All_object_categ($id_categ)
 
     return $retour;
 }
+function insert_object($nom_objet, $id_categorie, $id_membre) {
+    $conn = dbconnect();
+
+    $requete = "INSERT INTO objet (nom_objet, id_categorie, id_membre) 
+                VALUES ('$nom_objet', $id_categorie, $id_membre)";
+
+   
+    mysqli_query($conn, $requete);
+
+    
+    $id_insere = mysqli_insert_id($conn);
+
+    return $id_insere;
+}
+
+function insert_image_object($id_objet, $nom_image) {
+    $conn = dbconnect();
+
+    $requete = "INSERT INTO images_objet (id_objet, nom_image) VALUES ($id_objet, '$nom_image')";
+    mysqli_query($conn, $requete);
+
+    mysqli_close($conn);
+}
+
+
+
+
+
