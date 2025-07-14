@@ -71,7 +71,9 @@ $page = $_GET["page"];
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link" href="./model.php?page=liste.php">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="./model.php?page=categorie_list.php">Catégorie</a></li>
-                    <li class="nav-item"><a class="nav-link" href="./model.php?page=upload_objet.php">Nouvelle Objet</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./model.php?page=upload_objet.php">Nouveau</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./model.php?page=upload_objet.php">Recherche</a></li>
+
 
 
                     <li class="nav-item dropdown">
@@ -80,7 +82,7 @@ $page = $_GET["page"];
                             <?= $user['nom'] ?>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item " href="./action/deconnect.php">
+                            <li><a class="dropdown-item " href="./model.php?page=ficheMembre.php&id=<?= $id ?>">
                                     <i class="bi bi-person me-1"></i> Profile
                                 </a></li>
                             <li><a class="dropdown-item text-danger" href="./action/deconnect.php">

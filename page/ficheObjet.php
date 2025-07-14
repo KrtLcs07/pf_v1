@@ -125,7 +125,7 @@ $objet = getObjet($id);
                     <h5><i class="bi bi-person-fill me-2"></i>Propriétaire</h5>
                     <p class="mb-1">Nom : <strong><?= ($objet['proprietaire']) ?></strong></p>
                     <p>Email : <i><?= get_user($objet['id_membre'])['email'] ?></i></p>
-                    <p><a href="model.php?page=fichePersonne.php&id=<?= $objet['id_membre'] ?>" class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-50-hover"> Voir plus sur la personne</a></p>
+                    <p><a href="model.php?page=ficheMembre.php&id=<?= $objet['id_membre'] ?>" class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-50-hover"> Voir plus sur la personne</a></p>
                     <?php if ($objet['date_emprunt']) { ?>
                         <hr>
                         <h6 class="mt-3"><i class="bi bi-calendar-event me-1"></i>Emprunt en cours</h6>
