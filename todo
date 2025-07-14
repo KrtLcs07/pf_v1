@@ -1,0 +1,25 @@
+Todo v1
+
+BASE:
+_Création de base de donnée (Lucas) ;;ok
+    _creation des tables
+    _insertion de donnée de test
+
+Fonction:
+    _insertion d'user
+    _verif user
+    _getAll objet
+
+Page:
+    _Login.php (Lucas) ;;ok
+        _nom et mdp
+        
+    _Signin.php (Lucas) ;;ok
+        _ tous les information de membre autre que pdp
+
+    _Creation de page model.php (Lucas)
+        _verif si page null ou non
+        _ajout de header/nav, barre de navigation
+        _ajout de footer avec ETU
+
+    _Liste.php
