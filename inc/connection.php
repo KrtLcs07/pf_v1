@@ -4,7 +4,7 @@ function dbconnect()
     static $connect = null;
 
     if ($connect === null) {
-        $connect = mysqli_connect('localhost', 'root', '', 'Insta');
+        $connect = mysqli_connect('localhost', 'root', '', 'pf_v1_data');
 
         if (!$connect) {
             // Arrête le script et affiche une erreur si la connexion échoue
